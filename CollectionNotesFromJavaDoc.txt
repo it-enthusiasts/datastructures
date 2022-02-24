@@ -1,0 +1,45 @@
+JAVA SET
+A Set is a Collection that cannot contain duplicate elements. It models the mathematical set abstraction. 
+The Set interface contains only methods inherited from Collection and adds the restriction that duplicate elements are 
+prohibited. Set also adds a stronger contract on the behavior of the equals and hashCode operations, allowing 
+Set instances to be compared meaningfully even if their implementation types differ. Two Set instances are equal if 
+they contain the same elements.
+
+The Java platform contains three general-purpose Set implementations: HashSet, TreeSet, and LinkedHashSet. HashSet, 
+which stores its elements in a hash table, is the best-performing implementation; however it makes no guarantees concerning
+ the order of iteration. TreeSet, which stores its elements in a red-black tree, orders its elements based on their values;
+ it is substantially slower than HashSet. LinkedHashSet, which is implemented as a hash table with a linked list running through it,
+ orders its elements based on the order in which they were inserted into the set (insertion-order). LinkedHashSet spares its 
+ clients from the unspecified, generally chaotic ordering provided by HashSet at a cost that is only slightly higher.
+ 
+ e.g.  No Duplicate
+ Collection<Type> noDups = new HashSet<>(c);
+ c.stream().collect(Collectors.toSet());
+ 
+ e.g. No DUplciate but preseve the order
+ new LinkedHashSet<>(c);
+ 
+ e.g Sorted Name of Person
+ Set<String> names= people.stream().map(Person::getName).collect(Collectors.toCollection(TreeSeet::New));
+ 
+ Bulk Operations
+ s1.containsAll(s2) — returns true if s2 is a subset of s1. (s2 is a subset of s1 if set s1 contains all of the elements in s2.)
+s1.addAll(s2) — transforms s1 into the union of s1 and s2. (The union of two sets is the set containing all of the elements contained in either set.)
+s1.retainAll(s2) — transforms s1 into the intersection of s1 and s2. (The intersection of two sets is the set containing only the elements common to both sets.)
+s1.removeAll(s2) — transforms s1 into the (asymmetric) set difference of s1 and s2. (For example, the set difference of s1 minus s2 is the set containing all of the elements found in s1 but not in s2.)
+
+
+LIST API
+A List is an ordered Collection (sometimes called a sequence). Lists may contain duplicate elements. In addition to the operations inherited from Collection, the List interface includes operations for the following:
+The Java platform contains two general-purpose List implementations. ArrayList, which is usually the better-performing implementation, and LinkedList which offers better performance under certain circumstances.
+
+
+
+Positional access — manipulates elements based on their numerical position in the list. This includes methods such as get, set, add, addAll, and remove.
+Search — searches for a specified object in the list and returns its numerical position. Search methods include indexOf and lastIndexOf.
+Iteration — extends Iterator semantics to take advantage of the list's sequential nature. The listIterator methods provide this behavior.
+Range-view — The sublist method performs arbitrary range operations on the list.
+
+Implementations : ArrayList , LinkedList
+
+
